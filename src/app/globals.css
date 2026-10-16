@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --vp-off-white: #f1eee7;
+  --vp-ink: #171717;
+  --vp-coral: #ff5548;
+  --vp-muted-blue: #7087a5;
+  --vp-navy: #17203a;
+  --vp-beige: #cdbba6;
+  --vp-muted: #5c5c58;
+  --vp-surface: #faf8f4;
+  --vp-border: rgba(23, 23, 23, 0.12);
+  --vp-border-strong: rgba(23, 23, 23, 0.22);
+  --vp-gutter: clamp(20px, 4vw, 40px);
+  --vp-max: 1280px;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--vp-off-white);
+  --color-foreground: var(--vp-ink);
+  --font-sans: var(--font-vp-sans);
+  --font-mono: var(--font-vp-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--vp-off-white);
+  color: var(--vp-ink);
+  font-family: var(--font-vp-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.vp-container {
+  width: min(100% - var(--vp-gutter) * 2, var(--vp-max));
+  margin-inline: auto;
+}
+
+.vp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--vp-ink);
+  background: var(--vp-ink);
+  color: var(--vp-off-white);
+  padding: 0.65rem 1.1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.vp-btn-primary:hover {
+  background: var(--vp-coral);
+  border-color: var(--vp-coral);
+}
+
+.vp-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--vp-border-strong);
+  padding: 0.65rem 1.1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.vp-btn-ghost:hover {
+  border-color: var(--vp-ink);
+  color: var(--vp-coral);
+}
